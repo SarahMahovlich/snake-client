@@ -30,6 +30,8 @@ const handleUserInput = () => {
       connection.write("Move: down");
     } else if (key === '\u001b[C') {
       connection.write("Move: right");
+    } else if (key === "s") {
+      connection.write("Say: snakeeee");
     }
   });
 };
