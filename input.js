@@ -4,6 +4,7 @@ const stdin = process.stdin;
 
 let connection;
 const { connect } = require('./client');
+const { exit, up, left, down, right } = require('./constants');
 
 /**
  * Setup User Interface 
@@ -19,16 +20,16 @@ const setupInput = function(conn) {
 const handleUserInput = () => {
   stdin.on('data', (key) => {
     console.log(key);
-    if (key === '\u0003') {
+    if (key === exit) {
       console.log("Thanks for using me, ciao!");
       process.exit();
-    } else if (key === '\u001b[A') {
+    } else if (key === up) {
       connection.write("Move: up");
-    } else if (key === '\u001b[D') {
+    } else if (key === left) {
       connection.write("Move: left");
-    } else if (key === "\u001b[B") {
+    } else if (key === down) {
       connection.write("Move: down");
-    } else if (key === '\u001b[C') {
+    } else if (key === right) {
       connection.write("Move: right");
     } else if (key === "s") {
       connection.write("Say: snakeeee");
